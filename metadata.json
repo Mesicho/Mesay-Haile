@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix ETHIO BUSINESS HELPER | የንግድ ረዳት",
+  "description": "የንግድዎን ሙሉ አስተዳደር በአንድ ስርዓት - Ethiopian business management, POS, inventory, credit \u0026 debt, and finance SaaS platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

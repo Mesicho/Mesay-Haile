@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      (function() {
+        var origError = console.error;
+        console.error = function() {
+          var msg = arguments[0];
+          if (typeof msg === 'string' && (
+            msg.indexOf('[vite] failed to connect') !== -1 ||
+            (msg.indexOf('[vite]') === 0 && (msg.toLowerCase().indexOf('websocket') !== -1 || msg.indexOf('WebSocket') !== -1))
+          )) {
+            return;
+          }
+          origError.apply(console, arguments);
+        };
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ETHIO BUSINESS HELPER | የንግድ ረዳት</title>
+    <meta name="description" content="የንግድዎን ሙሉ አስተዳደር በአንድ ስርዓት - Ethiopian business management, POS, inventory, credit & debt, and finance SaaS platform." />
+    <meta property="og:title" content="ETHIO BUSINESS HELPER | የንግድ ረዳት" />
+    <meta property="og:description" content="የንግድዎን ሙሉ አስተዳደር በአንድ ስርዓት - Ethiopian business management, POS, inventory, credit & debt, and finance SaaS platform." />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="ETHIO HELPER" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (function() {
+        try {
+          var raw = localStorage.getItem('ethio_biz_helper_theme') || localStorage.getItem('ethio_theme');
+          var theme = raw ? (raw.startsWith('"') ? JSON.parse(raw) : raw) : 'system';
+          var isDark = theme === 'dark' || (theme === 'system' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.documentElement.style.colorScheme = 'dark';
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.documentElement.style.colorScheme = 'light';
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
